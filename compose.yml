@@ -9,6 +9,17 @@ services:
             - 80:80
         networks:
             - default
+    mysql:
+        image: mysql:8.0
+        container_name: mysql
+        environment:
+            MYSQL_ROOT_PASSWORD: 12345
+        volumes:
+            - ./database/mysql:/var/lib/mysql
+        ports:
+            - 3306:3306
+        networks:
+            - default
 networks:
     default:
         driver: bridge
