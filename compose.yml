@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+    apache:
+        image: httpd:alpine
+        container_name: alpine
+        volumes:
+            - ./htdocs:/usr/local/apache2/htdocs/
+        ports:
+            - 80:80
+        networks:
+            - default
+networks:
+    default:
+        driver: bridge
